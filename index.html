@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#13100f">
+  <meta name="description" content="Интерактивная инструкция для электроочага Schones Feuer 3D HotLine 300">
+  <title>HotLine 300 — интерактивная инструкция</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="В начало">
+      <img src="assets/pdf-p01-02.jpg" alt="Schönes Feuer">
+    </a>
+    <div class="topbar-actions">
+      <button class="icon-button" id="openContents" type="button" aria-label="Открыть все разделы">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <button class="text-button" id="restartGuide" type="button">Начать заново</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">3D HotLine 300</span>
+        <h1>Первый<br>запуск<br><em>без лишнего текста</em></h1>
+        <p>Пройдите установку шаг за шагом. Это займет около 7 минут.</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="startGuide" type="button">
+            <span>Начать настройку</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button class="secondary-button" id="continueGuide" type="button" hidden>Продолжить</button>
+        </div>
+        <div class="safety-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.8 19h18.4L12 3Zm0 5v5m0 3v.1"/></svg>
+          <span>Используйте только дистиллированную воду.</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/pdf-p01-01.jpg" alt="Электроочаг HotLine 300 с эффектом пламени">
+        <div class="hero-badge">
+          <strong>7 мин</strong>
+          <span>до первого запуска</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-grid" aria-labelledby="quickTitle">
+      <div class="section-heading">
+        <span class="eyebrow">Быстрый доступ</span>
+        <h2 id="quickTitle">Что нужно сделать?</h2>
+      </div>
+      <div class="quick-cards" id="quickCards"></div>
+    </section>
+
+    <section class="facts">
+      <article><strong>60 Вт</strong><span>мощность</span></article>
+      <article><strong>1 л</strong><span>объем бака</span></article>
+      <article><strong>до 8 ч</strong><span>работа на полном баке</span></article>
+      <article><strong>8,5 кг</strong><span>вес устройства</span></article>
+    </section>
+
+    <footer>
+      <p>ООО «ШОНФАЕР»</p>
+      <a href="tel:+74951812281">+7 (495) 181-22-81</a>
+      <a href="mailto:support@schonesfeuer.ru">support@schonesfeuer.ru</a>
+      <button id="openOriginal" type="button">Открыть полную PDF-инструкцию</button>
+    </footer>
+  </main>
+
+  <dialog class="guide-dialog" id="guideDialog">
+    <div class="dialog-shell">
+      <div class="dialog-top">
+        <div class="progress-meta">
+          <span id="stepCounter">Шаг 1 из 9</span>
+          <div class="progress-track"><span id="progressBar"></span></div>
+        </div>
+        <button class="icon-button close-button" id="closeGuide" type="button" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="dialog-body">
+        <div class="step-media" id="stepMedia"></div>
+        <div class="step-copy">
+          <span class="eyebrow" id="stepEyebrow"></span>
+          <h2 id="stepTitle"></h2>
+          <p class="step-lead" id="stepLead"></p>
+          <div id="stepContent"></div>
+          <label class="confirm-check" id="confirmLabel">
+            <input type="checkbox" id="confirmStep">
+            <span class="checkmark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 7"/></svg></span>
+            <span id="confirmText">Готово, можно продолжать</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <button class="secondary-button" id="prevStep" type="button">Назад</button>
+        <button class="primary-button" id="nextStep" type="button" disabled>
+          <span>Далее</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="contents-dialog" id="contentsDialog">
+    <div class="contents-shell">
+      <div class="contents-header">
+        <div>
+          <span class="eyebrow">Навигация</span>
+          <h2>Все разделы</h2>
+        </div>
+        <button class="icon-button" id="closeContents" type="button" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <p class="locked-hint" id="lockedHint">Сначала завершите пошаговую настройку. Пройденные разделы уже доступны.</p>
+      <div class="contents-list" id="contentsList"></div>
+      <div class="reference-block">
+        <h3>Важно помнить</h3>
+        <div class="reference-grid">
+          <article><strong>Вода</strong><p>Только дистиллированная. Без масел, ароматизаторов и лекарственных средств.</p></article>
+          <article><strong>Режим работы</strong><p>Не используйте устройство непрерывно дольше 10 часов.</p></article>
+          <article><strong>Температура</strong><p>Эксплуатация только в помещении при температуре от 10 до 35 °C.</p></article>
+          <article><strong>Очистка</strong><p>Раз в 1–1,5 месяца. Не оставляйте воду в камине дольше 4 дней.</p></article>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
