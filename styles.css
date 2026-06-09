@@ -455,6 +455,7 @@ dialog::backdrop { background: rgba(0,0,0,.72); }
 
 @media (max-width: 680px) {
   dialog { background: #080706; backdrop-filter: none; }
+  .qr-section { display: none; }
   .topbar { grid-template-columns: 100px 1fr 44px; min-height: 66px; padding: 10px 16px; }
   .brand img { width: 94px; }
   .header-progress { display: block; padding: 0 10px; }
