@@ -120,7 +120,7 @@ const steps = [
     eyebrow: "На будущее",
     title: "Как правильно слить воду",
     lead: "Сливайте воду перед транспортировкой, длительным простоем и обслуживанием.",
-    image: "assets/pdf-p05-02.jpg",
+    image: "assets/water-drain.gif",
     contain: true,
     content: `
       <ul class="step-list">
